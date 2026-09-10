@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Banalili Resto — Order Online</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="brand"><span class="leaf-dot"></span>Banalili Resto</div>
+  <div class="step-indicator" id="stepIndicator">Step 1 of 5 — Menu</div>
+</header>
+
+<main>
+
+  <!-- ============ VIEW 1: MENU ============ -->
+  <section class="view active" id="view-menu">
+    <h1 class="page-title">What are you craving today?</h1>
+    <p class="page-sub">Tap a dish to add it to your order.</p>
+    <div class="category-tabs" id="categoryTabs"></div>
+    <div class="menu-grid" id="menuGrid">
+      <p class="loading-msg">Loading menu…</p>
+    </div>
+  </section>
+
+  <!-- ============ VIEW 2: CART ============ -->
+  <section class="view" id="view-cart">
+    <h1 class="page-title">Your order</h1>
+    <p class="page-sub">Review your items before checking out.</p>
+    <div class="cart-list" id="cartList"></div>
+    <div class="summary-box" id="cartSummary" style="display:none;">
+      <div class="summary-row"><span>Subtotal</span><span id="cartSubtotal">₱0</span></div>
+      <div class="summary-row total"><span>Total</span><b id="cartTotal">₱0</b></div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-outline" data-goto="view-menu">Add more items</button>
+      <button class="btn btn-primary" id="toCheckoutBtn" disabled>Proceed to checkout</button>
+    </div>
+  </section>
+
+  <!-- ============ VIEW 3: CHECKOUT ============ -->
+  <section class="view" id="view-checkout">
+    <h1 class="page-title">Checkout</h1>
+    <p class="page-sub">Tell us who's picking this up (or where to bring it).</p>
+    <div class="error-msg" id="checkoutError"></div>
+    <form id="checkoutForm">
+      <div class="field">
+        <label for="custName">Full name</label>
+        <input type="text" id="custName" placeholder="Juan Dela Cruz" required>
+      </div>
+      <div class="field">
+        <label for="custContact">Contact number</label>
+        <input type="text" id="custContact" placeholder="09XX XXX XXXX" required>
+      </div>
+      <div class="field">
+        <label for="custNotes">Order notes (optional)</label>
+        <textarea id="custNotes" rows="3" placeholder="e.g. less spicy, no onions"></textarea>
+      </div>
+    </form>
+    <div class="summary-box" id="checkoutSummary"></div>
+    <div class="btn-row">
+      <button class="btn btn-outline" data-goto="view-cart">Back to order</button>
+      <button class="btn btn-primary" id="toConfirmBtn">Review order</button>
+    </div>
+  </section>
+
+  <!-- ============ VIEW 4: CONFIRM ORDER ============ -->
+  <section class="view" id="view-confirm">
+    <h1 class="page-title">Confirm your order</h1>
+    <p class="page-sub">Please double-check everything before you confirm.</p>
+    <div class="summary-box" id="confirmSummary"></div>
+    <div class="btn-row">
+      <button class="btn btn-outline" data-goto="view-checkout">Edit details</button>
+      <button class="btn btn-primary" id="confirmOrderBtn">Confirm order</button>
+    </div>
+  </section>
+
+  <!-- ============ VIEW 5: DINE-IN OR TAKEOUT ============ -->
+  <section class="view" id="view-ordertype">
+    <div class="confirm-wrap">
+      <h1 class="page-title">Order confirmed!</h1>
+      <p class="page-sub">One last thing — how would you like it served?</p>
+      <div class="type-grid" style="margin:0 auto;">
+        <div class="type-card" data-type="dine-in">
+          <div class="emoji">🍽️</div>
+          <h3>Dine In</h3>
+          <p>We'll have it plated at your table.</p>
+        </div>
+        <div class="type-card" data-type="takeout">
+          <div class="emoji">🥡</div>
+          <h3>Take Out</h3>
+          <p>Packed and ready for pickup.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VIEW 6: THANK YOU / ORDER CODE ============ -->
+  <section class="view" id="view-thankyou">
+    <div class="confirm-wrap">
+      <div class="order-type-pill" id="finalOrderType">Dine In</div>
+      <h1 class="thank-you-msg">Thank you!</h1>
+      <p class="confirm-sub">Show this code to the counter when your order is ready.</p>
+      <div class="code-box">
+        <div class="label">YOUR ORDER CODE</div>
+        <div class="code" id="orderCode">——————</div>
+      </div>
+      <p class="confirm-sub" id="finalTotalMsg"></p>
+      <div class="btn-row" style="justify-content:center;">
+        <button class="btn btn-primary" id="newOrderBtn">Place another order</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div id="cart-bar">
+  <div>
+    <div class="count" id="cartBarCount">0 items</div>
+    <div class="total" id="cartBarTotal">₱0</div>
+  </div>
+  <button class="view-cart-btn" data-goto="view-cart">View order</button>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
