@@ -92,8 +92,9 @@ function renderMenuGrid() {
     const qty = state.cart[item.id] || 0;
     const card = document.createElement('div');
     card.className = 'item-card';
-    card.innerHTML = `
-      <div class="item-top">
+   card.innerHTML = `
+    ${item.image ? `<img class="item-image" src="${item.image}" alt="${item.name}">` : ''}
+    <div class="item-top">
         <h3>${item.name}</h3>
         <div class="item-price">${peso(item.price)}</div>
       </div>
