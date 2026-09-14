@@ -4,7 +4,7 @@
       "id": "ulam",
       "name": "Rice Meals",
       "items": [
-        { "id": "adobo-gata", "name": "Adobo sa Gata", "desc": "Chicken adobo braised in coconut milk, served with rice.", "price": 149 },
+        { "id": "adobo-gata", "name": "Adobo sa Gata", "desc": "Chicken adobo braised in coconut milk, served with rice.", "price": 149, "image": "images/Adobo sa Gata.jpg" },
         { "id": "sinigang-baboy", "name": "Sinigang na Baboy", "desc": "Pork sinigang in a sour tamarind broth with vegetables.", "price": 169 },
         { "id": "crispy-pata", "name": "Crispy Pata", "desc": "Deep-fried pork leg, crackling skin, soy-vinegar dip.", "price": 329 },
         { "id": "bicol-express", "name": "Bicol Express", "desc": "Pork simmered in coconut cream and chilies.", "price": 159 },
